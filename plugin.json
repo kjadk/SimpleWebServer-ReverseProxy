@@ -1,0 +1,63 @@
+{
+  "name": "Reverse Proxy",
+  "id": "reverseproxy",
+  "script": "script.js",
+  "options": [
+    {
+      "id": "enabled1",
+      "name": "Enable Reverse Proxy",
+      "description": "Enable or disable the reverse proxy functionality.",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "routes",
+      "name": "Proxy Routes",
+      "description": "Proxy route configuration in JSON format (e.g., [{\"path\": \"/api\", \"target\": \"http://localhost:3000\"}])",
+      "type": "string",
+      "default": "[{\"path\": \"/api\", \"target\": \"http://localhost:3000\"}]"
+    },
+	{
+    "id": "timeout",
+	"name": "Timeout for Upstream Request",
+    "description": "Maximum time (in milliseconds) to wait for a response from the proxied backend server before timing out. Default is 30000ms (30 seconds)",
+    "type": "string",
+    "default": "30000"
+    },
+    {
+      "id": "enableBasicAuth",
+      "name": "Enable Basic Authentication",
+      "description": "Enable or disable Basic Authentication for proxied routes.",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "id": "basicAuthUsers",
+      "name": "Basic Auth Users (JSON)",
+      "description": "Users and passwords for Basic Auth in JSON format (e.g., {\"myuser\":\"mypassword\", \"admin\":\"secret\"}). IMPORTANT: Passwords are in plaintext for this example.",
+      "type": "string",
+      "default": "{\"username\":\"password\"}"
+    },
+    {
+      "id": "rateLimitConnections",
+      "name": "Max Connections (per window)",
+      "description": "Maximum number of connections allowed from a single IP address within the specified time window. Set to 0 to disable.",
+      "type": "string",
+      "default": "0"
+    },
+    {
+      "id": "rateLimitTimeWindowMinutes",
+      "name": "Rate Limit Time Window (minutes)",
+      "description": "Time window in minutes for rate limiting. Connections are counted within this period. Set to 0 to disable.",
+      "type": "string",
+      "default": "0"
+    },
+	{
+      "id": "useXForwardedFor",
+      "name": "Use X-Forwarded-For for Client IP",
+      "description": "Enable if your server is behind another proxy (e.g., Cloudflare, Nginx) to get the real client IP.",
+      "type": "bool",
+      "default": false
+    }
+  ]
+}
