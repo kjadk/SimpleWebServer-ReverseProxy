@@ -1,6 +1,6 @@
 # Reverse Proxy Plugin for Simple Web Server
 
-This Node.js plugin extends a "Simple Web Server" to function as a reverse proxy. It enables forwarding requests, basic authentication, rate limiting, and enhances security by adding standard headers.
+This plugin extends Simple Web Server to function as a reverse proxy. It enables forwarding requests, basic authentication, rate limiting, and enhances security by adding standard headers.
 
 
 ## Features
