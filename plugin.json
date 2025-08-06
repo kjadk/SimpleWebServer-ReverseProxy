@@ -15,7 +15,7 @@
       "name": "Proxy Routes",
       "description": "Proxy route configuration in JSON format (e.g., [{\"path\": \"/api\", \"target\": \"http://localhost:3000\"}])",
       "type": "string",
-      "default": "[{\"path\": \"/api\", \"target\": \"http://localhost:3000\"}]"
+      "default": "[{\"host\":\"domain.com\", \"path\": \"/api\", \"target\": \"http://localhost:3000\"}]"
     },
 	{
     "id": "timeout",
@@ -54,10 +54,31 @@
     },
 	{
       "id": "useXForwardedFor",
-      "name": "Use X-Forwarded-For for Client IP",
-      "description": "Enable if your server is behind another proxy (e.g., Cloudflare, Nginx) to get the real client IP.",
+      "name": "Trust X-Forwarded-For Header",
+      "description": "If enabled, the reverse proxy will use the 'X-Forwarded-For' header to determine the client IP, which is useful when behind another proxy or load balancer. Default is false.",
       "type": "bool",
       "default": false
-    }
+    },
+	{
+		"id": "preserveHost",
+		"name": "Preserve Host Header",
+		"description": "If enabled, the original 'Host' header is preserved and forwarded to the upstream server. If disabled, the 'Host' header is set to the target's hostname.",
+		"type": "bool",
+		"default": false
+	},
+	{
+		"id": "addHeaders",
+		"name": "Additional Headers (JSON)",
+		"description": "Additional headers to be added to the proxied request in JSON format (e.g., {\"X-Custom-Header\":\"my-value\"}).",
+		"type": "string",
+		"default": "{}"
+	},
+	{
+		"id": "basicAuthRealm",
+		"name": "Basic Auth Realm",
+		"description": "The realm name for Basic Authentication. This is the text shown in the browser's login prompt. Default is 'Restricted Area'.",
+		"type": "string",
+		"default": "Restricted Area"
+	}
   ]
 }
