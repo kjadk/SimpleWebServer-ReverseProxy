@@ -15,7 +15,7 @@
       "name": "Proxy Routes",
       "description": "Proxy route configuration in JSON format (e.g., [{\"path\": \"/api\", \"target\": \"http://localhost:3000\"}])",
       "type": "string",
-      "default": "[{\"host\":\"domain.com\", \"path\": \"/api\", \"target\": \"http://localhost:3000\"}]"
+      "default": "[{\"host\":\"domain.com:3000\", \"path\": \"/api\", \"target\": \"http://localhost:3000\"}]"
     },
 	{
     "id": "timeout",
@@ -82,3 +82,4 @@
 	}
   ]
 }
+
